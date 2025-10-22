@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 02beab9f0555b3a4b8e21ec19157c050
+timeCreated: 1516546308
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Example/Simple Survival/Settings/FastThirstSettings.asset
+  uploadId: 423830

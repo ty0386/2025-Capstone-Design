@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5ece7befc57de98458f5d60dad868120
+timeCreated: 1512073794
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Example/Simple Survival/Prefabs/Props/Shelf
+    1.prefab
+  uploadId: 423830

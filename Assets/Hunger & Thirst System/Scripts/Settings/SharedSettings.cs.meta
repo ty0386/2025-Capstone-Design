@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2113f4450306f3e448c7423de324cbe3
+timeCreated: 1512493108
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Scripts/Settings/SharedSettings.cs
+  uploadId: 423830

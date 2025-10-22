@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 251a587b48ae78840abf9bf512c078bf
+timeCreated: 1512915506
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Scripts/Editor/Utilities/EditorGUILayoutUtilities.cs
+  uploadId: 423830

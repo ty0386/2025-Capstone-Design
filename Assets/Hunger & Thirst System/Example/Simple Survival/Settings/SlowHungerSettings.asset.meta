@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 55f8c1d19ba9f3840b9a418e906162d4
+timeCreated: 1516408698
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Example/Simple Survival/Settings/SlowHungerSettings.asset
+  uploadId: 423830

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4b76a46d56ae0b0449698e079c985c9f
+timeCreated: 1483578077
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Example/Simple Survival/Scenes/Simple
+    Survival.unity
+  uploadId: 423830

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: eef7f685a49afe242be35a8bd1ec1b15
+timeCreated: 1512161840
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Example/Simple Survival/Prefabs/Player
+    1.prefab
+  uploadId: 423830

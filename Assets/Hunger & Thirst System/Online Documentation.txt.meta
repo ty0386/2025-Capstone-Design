@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6c57d42cc4aef5744a10774f40e02ef1
+timeCreated: 1516717652
+licenseType: Store
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Online Documentation.txt
+  uploadId: 423830

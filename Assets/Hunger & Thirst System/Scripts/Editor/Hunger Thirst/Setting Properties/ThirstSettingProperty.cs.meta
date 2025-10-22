@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 19523c655a54d8b4294891c221881dab
+timeCreated: 1516475981
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106005
+  packageName: Hunger & Thirst
+  packageVersion: 1.0.1
+  assetPath: Assets/Hunger & Thirst System/Scripts/Editor/Hunger Thirst/Setting Properties/ThirstSettingProperty.cs
+  uploadId: 423830
