@@ -46,7 +46,8 @@ public class TopDownMove : MonoBehaviour
 
             // 회전
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            rb.rotation = angle - 90f; // 스프라이트 위쪽 기준 -90도 보정
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+
         }
     }
 
