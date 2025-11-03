@@ -3,25 +3,49 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Bullet Settings")]
-    public float lifeTime = 3f;   // 자동 파괴 시간
-    public float damage = 1f;     // 필요 시 공격력
+    public float lifeTime = 3f;
+    public int damage = 1;
+    public bool isPlayerBullet = true; // true = 플레이어 총알, false = 적 총알
 
     void Start()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, -0.1f);
-        GetComponent<SpriteRenderer>().sortingOrder = 10;
-        Destroy(gameObject, lifeTime);
-        // 일정 시간 후 자동 파괴 (성능 관리)
-        Destroy(gameObject, lifeTime);
+        Destroy(gameObject, lifeTime); // 일정 시간 후 자동 파괴
     }
 
-    // 다른 오브젝트와 충돌했을 때
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //벽 레이어가 "Wall"일 경우
+        // 벽 충돌
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            Destroy(gameObject); // 총알 파괴
+            Destroy(gameObject);
+            return;
+        }
+
+        if (isPlayerBullet)
+        {
+            // 적에게 데미지
+            if (collision.CompareTag("Enemy"))
+            {
+                EnemyAI enemy = collision.GetComponent<EnemyAI>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1);
+                }
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            // 플레이어에게 데미지
+            if (collision.CompareTag("Player"))
+            {
+                TopDownMove player = collision.GetComponent<TopDownMove>();
+                if (player != null)
+                {
+                    player.TakeDamage(1);
+                }
+                Destroy(gameObject);
+            }
         }
     }
 }

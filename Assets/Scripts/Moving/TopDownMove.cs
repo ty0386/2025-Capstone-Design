@@ -1,14 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class TopDownMove : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 5f;
 
-    [Header("Collision")]
-    public LayerMask wallLayer; // "Wall" 레이어 지정
-    public float rayDistance = 0.1f; // 플레이어 앞 레이 길이
+    [Header("Player Stats")]
+    public int hp = 3; // 플레이어 체력
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -18,46 +16,43 @@ public class TopDownMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.freezeRotation = true;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()
     {
-        // 입력 수집
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
+        RotateToMouse();
     }
 
     void FixedUpdate()
     {
-        Vector2 currentPos = rb.position;
-        Vector2 moveDelta = moveInput * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+    }
 
-        // 이동할 방향으로 레이 캐스트 체크
-        if (moveInput.sqrMagnitude > 0.01f)
+    void RotateToMouse()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mouseWorldPos - transform.position);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+    }
+
+    // ✅ 플레이어 데미지 처리 함수 추가
+    public void TakeDamage(int amount)
+    {
+        hp -= amount;
+        Debug.Log($"플레이어가 {amount} 피해를 입었습니다. 남은 HP: {hp}");
+        if (hp <= 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(currentPos, moveInput, moveDelta.magnitude + rayDistance, wallLayer);
-
-            if (hit.collider == null)
-            {
-                // 이동 가능하면 이동
-                rb.MovePosition(currentPos + moveDelta);
-            }
-
-            // 회전
-            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-
+            Debug.Log("플레이어 사망!");
+            gameObject.SetActive(false);
+            // 필요하면 죽음 처리(예: 게임오버, 리스폰) 예정*
         }
     }
-
-    // 디버그용: 레이 시각화
-    void OnDrawGizmos()
-    {
-        if (rb == null) return;
-        Gizmos.color = Color.red;
-        Vector2 start = rb.position;
-        Vector2 dir = moveInput;
-        Gizmos.DrawLine(start, start + dir * (moveInput.magnitude * moveSpeed * Time.fixedDeltaTime + rayDistance));
-    }
 }
+

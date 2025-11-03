@@ -42,38 +42,38 @@ public class TopDownShooting : MonoBehaviour
 
     void Shoot()
     {
-        if (isReloading) return; // 장전 중엔 발사 불가
-
+        if (isReloading) return;
         if (currentMagAmmo <= 0)
         {
-            Debug.Log("🔄 탄창이 비었습니다! 우클릭으로 장전하세요.");
+            Debug.Log("탄창 비었습니다!");
             return;
         }
-
-        if (bulletPrefab == null || firePoint == null)
-        {
-            Debug.LogWarning("⚠️ bulletPrefab 또는 firePoint가 비어 있습니다!");
-            return;
-        }
+        if (bulletPrefab == null || firePoint == null) return;
 
         nextFireTime = Time.time + fireRate;
 
-        // 총알 생성
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
+            // Rigidbody2D velocity로 발사
+            rb.linearVelocity = firePoint.up * bulletSpeed;
+
+            // 총알 회전도 방향에 맞춤
+            float angle = Mathf.Atan2(rb.linearVelocity.y, rb.linearVelocity.x) * Mathf.Rad2Deg;
+            bullet.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         }
 
         Destroy(bullet, 3f);
 
-        currentMagAmmo--; // 탄창 내 탄약 감소
-        currentAmmo--;    // 전체 탄약 감소
+        currentMagAmmo--;
+        currentAmmo--;
 
-        Debug.Log($"💥 발사! 남은 탄창: {currentMagAmmo}/{magSize}, 전체 탄약: {currentAmmo}/{maxAmmo}");
+        Debug.Log($"발사! 남은 탄창: {currentMagAmmo}/{magSize}, 전체 탄약: {currentAmmo}/{maxAmmo}");
     }
+
+
 
     System.Collections.IEnumerator Reload()
     {
